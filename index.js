@@ -44,6 +44,12 @@ var util_1 = __importDefault(require("util"));
 var fs_1 = __importDefault(require("fs"));
 var uuid_1 = require("uuid");
 var pexec = util_1.default.promisify(child_process_1.exec);
+var express = require('express');
+var app = express();
+var port = 5000;
+app.listen(port, function () {
+    console.log("startando o app");
+});
 exports.default = (function (app) {
     app.on(["pull_request.opened", "pull_request.reopened", "pull_request.synchronize"], function (context) { return __awaiter(void 0, void 0, void 0, function () {
         var _a, owner, repo, pull_number, nome_branchs, merge_commit, i, parents, left, right, merge_base, baseParaMerge, baseParaA, baseParaB, codeReview;
